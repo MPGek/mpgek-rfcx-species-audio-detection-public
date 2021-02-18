@@ -1,0 +1,2151 @@
+==========================================================================================
+Fold: 1/5
+==========================================================================================
+Group: en2 Ag15 Mix8 380x720 RC6+6-2 FP-S fCoTeach-0.5-0.5-6-0.1 rLR-5-0.75 LR1e-3 kf5 bce
+Parameters: {
+  "train": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "audio": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "d_train": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "val": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  },
+  "cuda_visible_devices": "1",
+  "fold_group": "1b5e9",
+  "fold": 0
+}
+
+==================================== Config ====================================
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "Lwlrap",
+    "LS7TN",
+    "bceTP"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "min|val_LS7TN",
+    "min|val_bceTP"
+  ],
+  "save_metrics": [
+    "val_loss",
+    "val_bceTP"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
+==================================== Config ====================================
+Opening dataset...
+train dataset len: 8493
+train dataloader len: 160
+test dataset len: 356
+test dataloader len: 89
+Init model...
+Will be used new seed postfix: ''
+Models was loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================================
+Fold: 2/5
+==========================================================================================
+Group: en2 Ag15 Mix8 380x720 RC6+6-2 FP-S fCoTeach-0.5-0.5-6-0.1 rLR-5-0.75 LR1e-3 kf5 bce
+Parameters: {
+  "train": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "audio": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "d_train": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "val": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  },
+  "cuda_visible_devices": "1",
+  "fold_group": "1b5e9",
+  "fold": 1
+}
+
+==================================== Config ====================================
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "Lwlrap",
+    "LS7TN",
+    "bceTP"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "min|val_LS7TN",
+    "min|val_bceTP"
+  ],
+  "save_metrics": [
+    "val_loss",
+    "val_bceTP"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
+==================================== Config ====================================
+Opening dataset...
+train dataset len: 8531
+train dataloader len: 163
+test dataset len: 363
+test dataloader len: 91
+Init model...
+Will be used new seed postfix: ''
+Models was loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================================
+Fold: 3/5
+==========================================================================================
+Group: en2 Ag15 Mix8 380x720 RC6+6-2 FP-S fCoTeach-0.5-0.5-6-0.1 rLR-5-0.75 LR1e-3 kf5 bce
+Parameters: {
+  "train": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "audio": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "d_train": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "val": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  },
+  "cuda_visible_devices": "1",
+  "fold_group": "1b5e9",
+  "fold": 2
+}
+
+==================================== Config ====================================
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "Lwlrap",
+    "LS7TN",
+    "bceTP"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "min|val_LS7TN",
+    "min|val_bceTP"
+  ],
+  "save_metrics": [
+    "val_loss",
+    "val_bceTP"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
+==================================== Config ====================================
+Opening dataset...
+train dataset len: 8495
+train dataloader len: 160
+test dataset len: 367
+test dataloader len: 92
+Init model...
+Will be used new seed postfix: ''
+Models was loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================================
+Fold: 4/5
+==========================================================================================
+Group: en2 Ag15 Mix8 380x720 RC6+6-2 FP-S fCoTeach-0.5-0.5-6-0.1 rLR-5-0.75 LR1e-3 kf5 bce
+Parameters: {
+  "train": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "audio": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "d_train": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "val": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  },
+  "cuda_visible_devices": "1",
+  "fold_group": "1b5e9",
+  "fold": 3
+}
+
+==================================== Config ====================================
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "Lwlrap",
+    "LS7TN",
+    "bceTP"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "min|val_LS7TN",
+    "min|val_bceTP"
+  ],
+  "save_metrics": [
+    "val_loss",
+    "val_bceTP"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
+==================================== Config ====================================
+Opening dataset...
+train dataset len: 8499
+train dataloader len: 161
+test dataset len: 352
+test dataloader len: 88
+Init model...
+Will be used new seed postfix: ''
+Models was loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+==========================================================================================
+Fold: 5/5
+==========================================================================================
+Group: en2 Ag15 Mix8 380x720 RC6+6-2 FP-S fCoTeach-0.5-0.5-6-0.1 rLR-5-0.75 LR1e-3 kf5 bce
+Parameters: {
+  "train": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "audio": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "d_train": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "val": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  },
+  "cuda_visible_devices": "1",
+  "fold_group": "1b5e9",
+  "fold": 4
+}
+
+==================================== Config ====================================
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": false,
+    "folds": 5,
+    "input_channels": 1,
+    "save_last_n_models": 1,
+    "epochs": 140,
+    "remember_rate": 0.5,
+    "remember_c": 0.5,
+    "remember_length": 6,
+    "high_loss_train": 0.1,
+    "reduceLR": {
+      "patience": 5,
+      "factor": 0.75,
+      "min_lr": 1e-06
+    },
+    "early_stop": 45,
+    "loss": "bce",
+    "loss_reduction": "none",
+    "model": "en_b2_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "Lwlrap",
+    "LS7TN",
+    "bceTP"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "min|val_LS7TN",
+    "min|val_bceTP"
+  ],
+  "save_metrics": [
+    "val_loss",
+    "val_bceTP"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 12,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 15,
+    "mixup": 8,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": true,
+    "sample_val_fp": true,
+    "tp_fp_sampler": true
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
+==================================== Config ====================================
+Opening dataset...
+train dataset len: 8535
+train dataloader len: 164
+test dataset len: 343
+test dataloader len: 86
+Init model...
+Will be used new seed postfix: ''
+Models was loaded
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Early stopping!
+

@@ -1,0 +1,12 @@
+/**/__pycache__/
+/wandb/run-*/
+/wandb/offline-run-*/
+
+
+/data/runs
+/data/runs_server
+/data/test
+/data/train
+/data/test_cache.zarr
+/data/train_cache.zarr
+/data/~*.xlsx

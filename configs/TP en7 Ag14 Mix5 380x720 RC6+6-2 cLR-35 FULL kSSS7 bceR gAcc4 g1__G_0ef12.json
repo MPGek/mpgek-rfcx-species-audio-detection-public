@@ -1,0 +1,77 @@
+{
+  "audio_params": {
+    "sampling_rate": 48000,
+    "fmin": 50,
+    "fmax": 15000,
+    "n_mels": 380,
+    "n_fft": 4096,
+    "ftt_win_length": 1536,
+    "hop_length": 400
+  },
+  "train_params": {
+    "mixed_precision": true,
+    "multi_gpu": true,
+    "epochs": 70,
+    "folds": 7,
+    "kfold_sss": true,
+    "input_channels": 1,
+    "save_last_n_models": 2,
+    "save_epochs": [
+      35,
+      70
+    ],
+    "cosineLR": {
+      "cycle": 35
+    },
+    "early_stop": 0,
+    "loss": "bce_r",
+    "grad_acc_iters": 4,
+    "model": "en_b7_ns",
+    "pretrained": true,
+    "optimizer": "Adam",
+    "lr": 0.001
+  },
+  "metrics": [
+    "bce",
+    "rLoss",
+    "r",
+    "p",
+    "f2",
+    "Lwlrap"
+  ],
+  "watch_metrics": [
+    "min|val_loss",
+    "max|val_Lwlrap",
+    "max|val_f2"
+  ],
+  "save_metrics": [
+    "val_Lwlrap",
+    "val_f2"
+  ],
+  "watch_metrics_eps": 1e-05,
+  "train_data_loader": {
+    "key": "train",
+    "batch_size": 5,
+    "shuffle": true,
+    "num_workers": 6,
+    "wave_aug": 0,
+    "mel_aug": 14,
+    "mixup": 5,
+    "cut_samples": true,
+    "cut_size": 10,
+    "random_crop": 6,
+    "fix_cut_targets": true,
+    "use_fp": false
+  },
+  "test_data_loader": {
+    "batch_size": 4,
+    "shuffle": false,
+    "num_workers": 4,
+    "mel_aug": 9
+  },
+  "validate_params": {
+    "by_crops": 6,
+    "crops_offset": 2,
+    "by_labeled_crops": true
+  }
+}
