@@ -1,5 +1,5 @@
 # mpgek-rfcx-species-audio-detection-public
-22nd place solution for Rainforest Connection Species Audio Detection - https://www.kaggle.com/c/rfcx-species-audio-detection/
+21st place solution for Rainforest Connection Species Audio Detection - https://www.kaggle.com/c/rfcx-species-audio-detection/
 
 To train and predict models you can run script of TP and FP: run_scripts/train_model_simple.py
 To train FP co-teaching run run_scripts/train_model_coteaching.py
